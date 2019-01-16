@@ -3,9 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-router": "^4.4.3",
+    "bootstrap": "^4.2.1",
+    "material-design-icons": "^3.0.1",
+    "material-icons-react": "^1.0.4",
     "react": "^16.7.0",
+    "react-anchor-link-smooth-scroll": "^1.0.11",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.1"
+    "react-router-dom": "^4.3.1",
+    "react-router-hash-link": "^1.2.1",
+    "react-scripts": "2.1.1",
+    "react-slideshow-image": "^1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
