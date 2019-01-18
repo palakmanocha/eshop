@@ -10,11 +10,24 @@
 a{
   text-decoration:none !important;
 }
+.flex-con{
+  display:flex;
+  flex-direction: row;
+}
+.flex-col{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 .background{
   background-size:cover;
   background-repeat: no-repeat;
   position: relative;
 }
+.Main{
+  margin-top:4.5rem;
+}
+/*Nav.js*/
 .Nav{
   font-family: 'Comfortaa', cursive;
   max-height:4.5em;
@@ -42,14 +55,8 @@ a{
 .icons >div>i{
   margin:0 1rem 0 1rem;
 }
-.flex-con{
-  display:flex;
-  flex-direction: row;
-}
-.flex-col{
-  display:flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+.home-icon{
+  display:none;
 }
 .options>div>a{
   color:black;
@@ -70,10 +77,9 @@ a{
   transition:1s ease;
   width:100%;
 }
+
 /*SLidebar.js*/
-.Slidebar{
-  margin-top:4.5rem;
-}
+
 .each-slide{
   height:520px;
   width:100%;
@@ -115,9 +121,9 @@ a{
   transform: scale(1.1);
 }
 .opt-names{
-  margin-left:60%;
+  margin-top: 200px ;
+  margin-left: 25px;
   position: absolute;
-  margin-top:60%;
   z-index:2;
   border: none;
   background-color:white;
@@ -130,14 +136,49 @@ a{
   background-color:#E74C3C;
   color:white;
 }
-@media only screen and (max-width: 1060px) {
-  .last {
+#f{
+  height:20rem;
+}
+#s{
+  height:16rem;
+}
+#wb{
+  height:16rem;
+}
+#wc{
+  height:20rem;
+}
+#a{
+  height:20rem;
+}
+#b{
+  background-size:contain;
+  height:16rem;
+}
+.two{
+  display: none;
+}
+ @media only screen and (max-width: 1060px) {
+   .two{
+     display: flex;
+   }
+   .one{
+     display: none;
+   }
+   #s{
+     height: 20rem;
+   }
+   /* #a{
+     height: 22rem;
+   } */
+  /* .last {
     flex-direction: row;
-  }
+  }*/
   .Shop-con{
     justify-content: center;
-  }
-}
+
+  } 
+} 
 @media only screen and (max-width: 882px) {
   .last{
     flex-direction: column;
@@ -146,9 +187,11 @@ a{
     justify-content: center;
   }
   .shop-options{
-    width:600px;
+    width:500px;
+    height:18rem;
   }
 }
+
 @media only screen and (max-width: 672px) {
   .Shop-con{
     justify-content: center;
@@ -164,7 +207,6 @@ a{
 @media only screen and (max-width: 500px) {
   .opt-names{
     margin:120px 0px 10px 200px!important;
-    text-decoration: none !important;
     height:30px;
     width:90px;
     font-size: 10px;
@@ -185,5 +227,11 @@ a{
   }
 .each-slide{
   height: 250px;
+}
+.l-icons{
+  display:none;
+}
+.home-icon{
+  display:block;
 }
 }
