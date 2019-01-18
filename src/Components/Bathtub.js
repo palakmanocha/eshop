@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 class Bathtub extends Component {
   render() {
     return (
-      <div id="Bathtub" className="Bathtub">
+      <div id="bathtub" className="Bathtub">
         Bathtub
       </div>
     );
