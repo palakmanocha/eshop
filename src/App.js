@@ -1,33 +1,33 @@
 import React, { Component } from 'react';
 import Nav from './Components/Nav';
-import Faucets from './Components/Faucets';
-import Showers from './Components/Showers';
-import WashBasin from './Components/WashBasin';
-import Accesories from './Components/Accesories';
-import Bathtub from './Components/Bathtub';
-import WaterClosets from './Components/WaterClosets';
-import { BrowserRouter as Router,Switch, Route, Redirect, Link} from "react-router-dom";
-import Slidebar from './Components/Slidebar';
-import Shop from './Components/Shop';
+import Main from './Components/Main';
+import { BrowserRouter as Router,Switch, Route, Redirect} from "react-router-dom";
+import Sale from './Components/Sale';
 import './App.css';
 
 class App extends Component {
+
   render() {
     return (
       <Router>
         <div className="App">
+            <div id="loader" className="loader">
+              <div className="loads">
+                
+              </div>
+            </div>
             <Nav />
-            <div className="Main">
-              <Switch>
-                  <Route path="/" exact  component={Slidebar} />
-                  <Route path="/Shop" exact  component={Shop} />
-                  <Route path="/faucets" exact  component={Faucets} />
-                  <Route path="/showers" component={Showers} />
-                  <Route path="/washbasin" component={WashBasin} />    
-                  <Route path="/watercloset" component={WaterClosets} />    
-                  <Route path="/accesories" component={Accesories} />    
-                  <Route path="/bathtub" component={Bathtub} />  
-              </Switch>
+            <div className="Main1">
+            <Switch>
+              <Route path="/" exact  component={Main} />
+              <Route path="/sale" exact component={Sale} />
+              <Route path="/sale/faucets" exact  component={Sale} />
+              <Route path="/sale/shower" component={Sale} />
+              <Route path="/sale/washbasin" component={Sale} />    
+              <Route path="/sale/watercloset" component={Sale} />    
+              <Route path="/sale/accesories" component={Sale} />    
+              <Route path="/sale/bathtub" component={Sale} />  
+            </Switch> 
             </div>
         </div>
     </Router>
@@ -36,3 +36,4 @@ class App extends Component {
 }
 
 export default App;
+ 
