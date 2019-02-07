@@ -5,24 +5,25 @@ class SideNav extends Component {
     constructor(){
         super();
         this.state={
-            sliderValue:200
+            sliderValue:200,
         }
     }
+
     setValue(){
         this.setState({sliderValue:this.refs.slider.value});
-        console.log(this.state.sliderValue);
-        
     }
+    
   render() {
+   let categories = ["Faucets","Showers","Washbasin","Watercloset","Bathtub","Accesories"];
+    let getlinks = categories.map((link,index)=>{
+        return(
+            <p key={index}> <NavLink to={`/Sale/${link}`} className="light" >{link}</NavLink> </p>
+        );
+    });
     return (
       <div className="SideNav sidebar">
             <p style={{fontSize:'18px',fontWeight:'1000',marginBottom:'0.5rem'}}> <b> Categories</b></p>
-            <p ><NavLink className="light" to="/sale/faucets"   >Faucets</NavLink></p>
-            <p ><NavLink className="light" to="/sale/shower" >Showers</NavLink></p>
-            <p ><NavLink className="light" to="/sale/washbasin" >Wash Basins</NavLink></p>
-            <p ><NavLink className="light" to="/sale/watercloset">Water closets</NavLink></p>
-            <p ><NavLink className="light" to="/sale/accesories"  >Accesories</NavLink></p>
-            <p ><NavLink className="light" to="/sale/bathtub"  >Bath tub</NavLink></p>
+            {getlinks}
             <p style={{fontSize:'18px',fontWeight:'1000',marginTop:'2rem' }}><b>Filter</b></p>
             <div><hr width="70%"/></div>
             <p style={{color:'#34495E',marginTop:'2rem' }}><b>Price</b></p>
@@ -32,7 +33,7 @@ class SideNav extends Component {
             <div id="search">
                 <input id="search-box" type="search" placeholder="Search Items .."/>
                 <button id="find-btn">
-                <img src={find} alt=""/>
+                    <img src={find} alt=""/>
                 </button>
             </div>
       </div>

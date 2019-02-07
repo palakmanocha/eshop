@@ -1,52 +1,65 @@
-import f1 from "../images/faucets/f1.jpg";
-import f2 from "../images/faucets/f2.jpg";
-import f3 from "../images/faucets/f3.jpg";
-import f4 from "../images/faucets/f4.jpg";
-import f5 from "../images/faucets/f5.jpg";
-import f6 from "../images/faucets/f6.jpg";
-import s1 from "../images/showers/s1.jpg";
-import s2 from "../images/showers/s2.jpg";
-import s3 from "../images/showers/s3.jpg";
-import s4 from "../images/showers/s4.jpg";
-import s5 from "../images/showers/s5.jpg";
-import s6 from "../images/showers/s6.jpg";
-import bt1 from "../images/bathtub/bt1.jpg";
-import bt2 from "../images/bathtub/bt2.jpg";
-import bt3 from "../images/bathtub/bt3.jpg";
-import bt4 from "../images/bathtub/bt4.jpg";
-import bt5 from "../images/bathtub/bt5.jpg";
-import bt6 from "../images/bathtub/bt6.jpg";
-import ItemCon from './ItemCon';
 import React, {Component} from 'react';
-import gallery from '../images/r-gallery.png';
-import SideNav from './SideNav';
-import { BrowserRouter as Router,Switch, Route, Redirect} from "react-router-dom";
+import {  Switch, Route, Redirect} from "react-router-dom";
+import ItemCon from './ItemCon';
+import Item from './Item';
+
 class Sale extends Component{
+    constructor(){
+        super();
+        this.state={
+            categories: ["popular","Faucets","Showers","Washbasin","Watercloset","Bathtub","Accesories"],
+            names:{
+                popular:["abc","xyz","mno","jkl","wxy","pqr"],
+                Faucets:["Basin Faucet","Hot-Water Faucet","Two-Way Faucet","Pillar-Cock","Bathroom Faucet","Valve"],
+                Showers:["Deluge Shower","Downpour Shower","Drizzle Shower","Rainstorm Shower","Cloudburst Shower","Rain Shower"],
+                Bathtub:["bathrobe","Corner","bedaub","Clawfoots","Alcove","Drop-in"],
+                Accesories:["Standing Towel-Rod","Glass-alike Accesories","Black-love Towel-Rod","Black-love Accesories","wxy","Calm-White Accesories"],
+                Washbasin:["bowl","lagoon","pan","pool","pot","tub","valley"],
+                Watercloset:["Flushing (Powerful) Toilets","One-Piece Toilet","Two-Piece Toilet","Upflush Toilet","Small Compact Toilets","Corner Toilet","Wall Mounted Toilet","Square Toilet"]
+            },
+            price:{
+                popular:['$45','$87','$52','$113','$120','$65'],
+                Faucets:['$120','$65','$52','$113','$45','$87'],
+                Showers:['$45','$87','$52','$113','$120','$65'],
+                Bathtub:['$45','$87','$52','$113','$120','$65'],
+                Accesories:['$45','$87','$52','$113','$120','$65'],
+                Washbasin:['$45','$87','$52','$113','$120','$65'],
+                Watercloset:['$45','$87','$52','$113','$120','$65']
+            }
+        }
+    }
+
+       
     render(){
+        let items = this.state.categories.map((item,i)=>{
+            let bg = [
+                `/images/${item}/bg1.jpg`,
+                `/images/${item}/bg2.jpg`,
+                `/images/${item}/bg3.jpg`,
+                `/images/${item}/bg4.jpg`,
+                `/images/${item}/bg5.jpg` ,               
+                `/images/${item}/bg6.jpg`
+            ];
+            if(item==="popular"){
+                return(
+                    <Route key={i} exact path={`/Sale`} render={()=> <ItemCon bg={bg} names={this.state.names[item]} category={item} price={this.state.price[item]}/> } />
+                );
+            }
+            return(
+                <Route key={i} path={`/Sale/${item}`} render={()=> <ItemCon bg={bg} names={this.state.names[item]} category={item} price={this.state.price[item]}/> } />
+            );
+        });
+        
         return(
-            <Router>
-                <div className='Sale'>
-                    <div className="sale-gallery">
-                        <img height="100%" width="100%" src={gallery} alt=""/>
-                    </div>
-                    <div className="sale-main flex-con"> 
-                        <SideNav/>
-                        <div className="sale-con">
-                            <Switch>
-                                <Route path="/sale" exact  render={()=><ItemCon bg={[f1,f2,f3,f4,f5,f6]}/>} />
-                                <Route path="/sale/faucets" exact  render={()=><ItemCon bg={[f1,f2,f3,f4,f5,f6]}/>} />
-                                <Route path="/sale/shower" exact  render={()=><ItemCon bg={[s1,s2,s3,s4,s5,s6]}/> }/> 
-                                <Route path="/sale/bathtub" exact  render={()=><ItemCon bg={[f2,f1,f4,f4,f5,f6]}/> }/> 
-                                <Route path="/sale/washbasin" exact  render={()=><ItemCon bg={[f2,f1,f4,f4,f5,f6]}/> }/> 
-                                <Route path="/sale/watercloset" exact  render={()=><ItemCon bg={[f2,f1,f4,f4,f5,f6]}/> }/> 
-                                <Route path="/sale/accesories" exact  render={()=><ItemCon bg={[f2,f1,f4,f4,f5,f6]}/> }/> 
-                            </Switch>
-                        </div>
-                    </div>
+            <div className='Sale'>
+                <div className="sale-main flex-con"> 
+                    <Switch>
+                        <Route path="/Sale/:itemCon/:item" exact render={(props)=> <Item {...props} price={this.state.price}/>}/>
+                        {items}
+                    </Switch>
                 </div>
-            </Router>
+            </div>
         );
     }
 }
-
 export default Sale;

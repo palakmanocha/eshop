@@ -18,7 +18,7 @@ class Shop extends Component {
                         <img  className="opt-img" src={image1}alt=""/>
                     </div>
                     <div id="s"  className='shop-options' >
-                        <Link  to="/sale/shower" className="opt-names">Showers</Link>
+                        <Link  to="/sale/showers" className="opt-names">Showers</Link>
                         <img  className="opt-img"  src={image2} alt=""/>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ class Shop extends Component {
                         <img  className="opt-img" src={image1}alt=""/>
                     </div>
                     <div id="s" className='shop-options' >
-                        <Link  to="/sale/shower" className="opt-names">Showers</Link>
+                        <Link  to="/sale/showers" className="opt-names">Showers</Link>
                         <img  className="opt-img"  src={image2} alt=""/>
                     </div>
                     <div id="wb" className='shop-options' >
