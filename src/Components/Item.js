@@ -44,23 +44,22 @@ class Item extends Component {
           <Link to={`/Sale/${this.props.match.params.itemCon}`}>{this.props.match.params.itemCon} </Link> <span> &#x3e; </span>
           <Link to="/Sale">{this.props.match.params.item.slice(0,-1)}</Link>
         </div> 
-
+        
         <div className="flex-con item-main">
-        <div className="flex-con imgs">
-          <div className="diff-img flex-col">
-            <button onClick={()=>{setIndex(0)}}><img src={`/images/${this.props.match.params.itemCon}/bg${temp}.jpg`} alt=""/></button>
-            <button onClick={()=>{setIndex(1)}}><img src={`/images/${this.props.match.params.itemCon}/bg${temp+1}.jpg`} alt=""/></button>
-            <button onClick={()=>{setIndex(2)}}><img src={`/images/${this.props.match.params.itemCon}/bg${temp+2}.jpg`} alt=""/></button>
+          <div className="flex-con imgs">
+            <div className="diff-img flex-col">
+              <button onClick={()=>{setIndex(0)}}><img src={`/images/${this.props.match.params.itemCon}/bg${temp}.jpg`} alt=""/></button>
+              <button onClick={()=>{setIndex(1)}}><img src={`/images/${this.props.match.params.itemCon}/bg${temp+1}.jpg`} alt=""/></button>
+              <button onClick={()=>{setIndex(2)}}><img src={`/images/${this.props.match.params.itemCon}/bg${temp+2}.jpg`} alt=""/></button>
+            </div>
+            <div className="item-img">
+              <img src={`/images/${this.props.match.params.itemCon}/bg${this.state.index}.jpg`} alt=""/>
+            </div>
           </div>
-          <div className="item-img">
-            <img src={`/images/${this.props.match.params.itemCon}/bg${this.state.index}.jpg`} alt=""/>
-          </div>
-        </div>
           <div className="item-details">
             <h2>{this.props.match.params.item.slice(0,-1)}</h2>
             <h1>{this.props.price[this.props.match.params.itemCon][temp]}</h1>
             <p>Lorem ipsum dolor sit,<br/> amet consectetur adipisicing elit. Quibusdam sed</p>
-            
             <div className="flex-col">
               <div className="flex-con item-options">  
                 <p >Color</p>

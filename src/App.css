@@ -374,7 +374,7 @@ a{
 .item-main{
   margin-top:2rem;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 .item-details{
  margin-left:3rem;
@@ -420,12 +420,12 @@ a{
   height:3rem;
 }
 .imgs{
-  justify-content: space-around;
+  justify-content: space-between;
   width:40vw;
 }
 .item-img{
   height:400px;
-  width:350px;
+  width:70%;
 }
 .item-img>img{
   height:100%;
@@ -435,7 +435,6 @@ a{
   width:100%;
 }
 .diff-img{
-  /* max-width:120px; */
   margin-left:0rem;
 }
 .diff-img > button{
